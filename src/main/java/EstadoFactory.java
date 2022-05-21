@@ -2,9 +2,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class EstadoFactory {
-    private static Map<String,Estado> estados = new HashMap<>();
+    private static EstadoFactory instancia = new EstadoFactory();
+    public static EstadoFactory obterInstancia(){
+        return instancia;
+    }
+    private Map<String,Estado> estados = new HashMap<>();
 
-    public static Estado getEstado(String estadoNome) {
+    public Estado getEstado(String estadoNome) {
         Estado estado = estados.get(estadoNome);
         if (estado == null){
             estado = new Estado(estadoNome);
@@ -12,10 +16,10 @@ public class EstadoFactory {
         }
         return estado;
     }
-    public static int obterTotalEstado(){
+    public int obterTotalEstado(){
         return estados.size();
     }
-    public static void limpar(){
+    public void limpar(){
         estados.clear();
     }
 }

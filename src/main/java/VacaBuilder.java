@@ -30,7 +30,7 @@ public class VacaBuilder {
     }
 
     public VacaBuilder setEstado(String estado) {
-        this.vaca.setEstado(EstadoFactory.getEstado(estado));
+        this.vaca.setEstado(EstadoFactory.obterInstancia().getEstado(estado));
         return this;
     }
 }

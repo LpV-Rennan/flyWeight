@@ -12,12 +12,12 @@ class CurralTest {
 
     @BeforeEach
     void resetEstados(){
-        EstadoFactory.limpar();
+        EstadoFactory.obterInstancia().limpar();
     }
     @Test
     void deveRetornarTotalEstados0(){
         Curral curral = new Curral();
-        assertEquals(0,EstadoFactory.obterTotalEstado());
+        assertEquals(0,EstadoFactory.obterInstancia().obterTotalEstado());
 
     }
     @Test
@@ -25,7 +25,7 @@ class CurralTest {
         Curral curral = new Curral();
         curral.adicionar("Bezerra","Princesa","1");
         curral.adicionar("Bezerra","Sabrina","2");
-        assertEquals(1,EstadoFactory.obterTotalEstado());
+        assertEquals(1,EstadoFactory.obterInstancia().obterTotalEstado());
 
     }
     @Test
@@ -35,7 +35,7 @@ class CurralTest {
         curral.adicionar("Bezerra","Sabrina","2");
         curral.adicionar("Novilha","Malhada","3");
 
-        assertEquals(2,EstadoFactory.obterTotalEstado());
+        assertEquals(2,EstadoFactory.obterInstancia().obterTotalEstado());
 
     }
     @Test
